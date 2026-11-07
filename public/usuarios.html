@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nova Salud | Usuarios</title>
+    <meta name="description" content="Administra las cuentas y permisos del sistema Nova Salud.">
+
+    <!-- Estilos generales -->
+    <link rel="stylesheet" href="/css/dashboard.css">
+
+    <!-- Estilos del módulo Usuarios -->
+    <link rel="stylesheet" href="/css/clientes.css">
+    <link rel="stylesheet" href="/css/nova-theme.css">
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <!-- BARRA LATERAL -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <span>✚</span>
+                <h2>Nova Salud</h2>
+            </div>
+
+            <nav aria-label="Menú principal">
+                <a href="/dashboard.html">▦ Dashboard</a>
+                <a href="/productos.html">▣ Productos</a>
+                <a href="/inventario.html">▤ Inventario</a>
+                <a href="/ventas.html">🛒 Ventas</a>
+                <a href="/ventas.html#historial">📋 Historial</a>
+                <a href="/clientes.html">♙ Clientes</a>
+                <a href="/reportes.html">▥ Reportes</a>
+            </nav>
+
+            <button id="btnSalir" class="btn-salir">
+                ↪ Cerrar sesión
+            </button>
+
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="contenido">
+
+            <!-- ENCABEZADO -->
+            <header class="encabezado">
+
+                <div>
+                    <h1>Usuarios</h1>
+                    <p>
+                        Administra las cuentas y los roles del personal
+                    </p>
+                </div>
+
+                <!-- USUARIO -->
+                <div class="usuario">
+
+                    <div class="avatar">NS</div>
+
+                    <div>
+                        <strong id="nombreUsuario">Usuario</strong>
+                        <small id="rolUsuario">Rol</small>
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!-- PANEL DE USUARIOS -->
+            <section class="panel">
+
+                <div class="barra">
+                    <input id="buscar" type="search" placeholder="Buscar por nombre o correo">
+                    <button id="nuevo" class="btn primario">+ Nuevo usuario</button>
+                </div>
+
+                <p id="mensaje" class="estado"></p>
+
+                <div class="tabla">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>Rol</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla">
+                            <tr><td colspan="5">Cargando usuarios...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- MODAL NUEVO USUARIO -->
+    <div id="modal" class="modal">
+
+        <form id="formUsuario" class="formulario">
+
+            <h2>Nuevo usuario</h2>
+
+            <div class="campo">
+                <label for="nombre">Nombre completo *</label>
+                <input id="nombre" maxlength="120" required>
+            </div>
+
+            <div class="grid">
+                <div class="campo">
+                    <label for="correo">Correo *</label>
+                    <input id="correo" type="email" maxlength="120" required>
+                </div>
+
+                <div class="campo">
+                    <label for="rol">Rol *</label>
+                    <select id="rol">
+                        <option value="vendedor">Vendedor</option>
+                        <option value="admin">Administrador</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="password">Contraseña * (mín. 8)</label>
+                    <input id="password" type="password" minlength="8" autocomplete="new-password" required>
+                </div>
+            </div>
+
+            <p id="errorForm" class="estado error"></p>
+
+            <div class="modal-acciones">
+                <button type="button" id="cancelar" class="btn neutro">Cancelar</button>
+                <button type="submit" class="btn primario">Crear usuario</button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <script src="/js/nav.js"></script>
+    <script src="/js/usuarios.js"></script>
+
+</body>
+</html>

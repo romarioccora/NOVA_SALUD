@@ -1,0 +1,149 @@
+/* Identidad visual compartida de Nova Salud */
+:root {
+    --naranja: #f36b35;
+    --naranja-oscuro: #df5525;
+    --naranja-suave: #fff0e9;
+    --fondo: #f5f6fa;
+    --blanco: #ffffff;
+    --texto: #263238;
+    --gris: #858b98;
+    --borde: #e8ebf0;
+    --sombra: 0 8px 24px rgba(35, 45, 60, 0.06);
+}
+
+body {
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+}
+
+.sidebar {
+    width: 258px;
+    min-width: 258px;
+    padding: 26px 18px;
+    background: #fff;
+    border-right: 1px solid var(--borde);
+    box-shadow: 5px 0 22px rgba(35, 45, 60, 0.025);
+}
+
+.logo { gap: 11px; margin-bottom: 34px; }
+.logo span {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
+    color: #fff;
+    background: linear-gradient(135deg, #ff955f, var(--naranja-oscuro));
+    font-size: 25px;
+}
+.logo h2 { color: var(--texto); font-size: 19px; letter-spacing: .3px; }
+
+.sidebar nav { gap: 7px; }
+.sidebar nav a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 11px 13px;
+    border-radius: 10px;
+    color: #56606d;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+.sidebar nav a:hover { color: var(--naranja-oscuro); background: var(--naranja-suave); transform: translateX(2px); }
+.sidebar nav a.activo {
+    color: #fff;
+    background: linear-gradient(110deg, var(--naranja), #ff8a50);
+    box-shadow: 0 6px 14px rgba(243, 107, 53, .2);
+}
+
+.contenido { min-width: 0; padding: 30px; }
+.encabezado { align-items: center; margin-bottom: 25px; }
+.encabezado h1 { color: #202b38; font-size: clamp(23px, 3vw, 29px); letter-spacing: -.5px; }
+.encabezado p { margin-top: 7px; color: var(--gris); line-height: 1.5; }
+.usuario { gap: 11px; }
+.avatar { box-shadow: 0 4px 10px rgba(243, 107, 53, .16); }
+
+.tarjeta, .panel, .panel-inventario, .panel-reporte, .resumen > div, .dato {
+    border: 1px solid rgba(226, 230, 237, .85);
+    border-radius: 16px;
+    box-shadow: var(--sombra);
+}
+.tarjeta { padding: 21px; background: #fff; }
+.tarjeta span, .dato small, .resumen small { color: var(--gris); font-weight: 600; }
+.tarjeta h2, .dato strong, .resumen strong { margin: 10px 0 6px; color: #263238; font-size: 27px; }
+.tarjeta p { color: var(--gris); font-size: 13px; line-height: 1.5; }
+.tarjeta.alerta { border-left: 4px solid var(--naranja); background: linear-gradient(135deg, #fff, #fff8f4); }
+
+.panel, .panel-inventario, .panel-reporte { padding: 23px; background: #fff; margin-bottom: 20px; }
+.panel h3, .panel-inventario h3, .panel-reporte h3 { margin-bottom: 14px; color: #293442; font-size: 17px; }
+.panel p, .panel-inventario p { line-height: 1.6; }
+
+input, select, textarea {
+    max-width: 100%;
+    border: 1px solid #dfe4eb !important;
+    border-radius: 9px !important;
+    background: #fff;
+    color: var(--texto);
+    outline: none;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+input:focus, select:focus, textarea:focus {
+    border-color: var(--naranja) !important;
+    box-shadow: 0 0 0 3px rgba(243, 107, 53, .12);
+}
+button, .btn, .boton, .btn-principal, .btn-secundario {
+    border-radius: 9px;
+    font-weight: 600;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+button:hover { filter: brightness(.98); }
+button:active { transform: translateY(1px); }
+button:disabled { cursor: not-allowed; opacity: .6; }
+.primario, .btn-principal, .boton:not(.boton-secundario) {
+    color: #fff;
+    background: linear-gradient(110deg, var(--naranja), #ff8950);
+    box-shadow: 0 5px 12px rgba(243, 107, 53, .15);
+}
+.neutro, .btn-secundario, .boton-secundario { color: #46515e; background: #eef1f5; }
+.peligro, .btn-eliminar { color: #b42318; background: #fff0ef; }
+
+.tabla, .tabla-contenedor, .tabla-panel, .tabla-reporte { width: 100%; overflow-x: auto; border-radius: 10px; }
+table { width: 100%; border-collapse: separate; border-spacing: 0; }
+th { color: #657080; background: #f8f9fb; font-weight: 700; white-space: nowrap; }
+th, td { padding: 13px 14px; border-bottom: 1px solid #edf0f4; text-align: left; font-size: 13px; }
+td { color: #46515e; }
+tbody tr:hover { background: #fffaf7; }
+
+.modal { backdrop-filter: blur(4px); }
+.formulario, .modal-contenido { border: 1px solid var(--borde); border-radius: 16px; box-shadow: 0 20px 55px rgba(20, 30, 45, .18); }
+.formulario h2, .modal-contenido h2 { margin-bottom: 20px; color: #263238; }
+.campo { gap: 7px; }
+.campo label { color: #5f6977; font-weight: 600; }
+.estado { line-height: 1.5; }
+
+footer { margin-top: 28px; padding: 18px 0 4px; color: #9299a5; font-size: 12px; text-align: center; }
+.texto-ayuda { color: var(--gris); font-size: 14px; line-height: 1.7; }
+.nota-importante { margin-top: 18px; font-size: 14px; }
+.campo-pago { margin-top: 18px; }
+
+@media (max-width: 900px) {
+    .contenedor { flex-direction: column; }
+    .sidebar { width: 100%; min-width: 0; padding: 16px; border-right: 0; border-bottom: 1px solid var(--borde); }
+    .logo { margin-bottom: 15px; }
+    .sidebar nav { display: flex; flex-direction: row; flex-wrap: wrap; gap: 6px; }
+    .sidebar nav a { min-height: 38px; padding: 9px 11px; }
+    .btn-salir { margin-top: 12px; }
+    .contenido { padding: 22px; }
+}
+@media (max-width: 600px) {
+    .contenido { padding: 16px; }
+    .encabezado { align-items: flex-start; flex-direction: column; gap: 15px; }
+    .estadisticas, .estadisticas-reporte, .resumen { grid-template-columns: 1fr !important; }
+    .panel, .panel-inventario, .panel-reporte { padding: 16px; }
+    .barra, .acciones { align-items: stretch; flex-direction: column; }
+    .barra input, .buscador { width: 100%; min-width: 0; }
+    .filtros { grid-template-columns: 1fr !important; }
+}

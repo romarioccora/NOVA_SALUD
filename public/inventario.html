@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Salud | Inventario</title>
+    <meta name="description" content="Controla existencias y movimientos del inventario de Nova Salud.">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/inventario.css">
+    <link rel="stylesheet" href="/css/nova-theme.css">
+</head>
+<body>
+<div class="contenedor">
+    <aside class="sidebar">
+        <div class="logo"><span>✚</span><h2>Nova Salud</h2></div>
+        <nav aria-label="Menú principal">
+            <a href="/dashboard.html">▦ Dashboard</a>
+            <a href="/productos.html">▣ Productos</a>
+            <a href="/inventario.html" class="activo">▤ Inventario</a>
+            <a href="/ventas.html">🛒 Ventas</a>
+            <a href="/clientes.html">♙ Clientes</a>
+            <a href="/reportes.html">▥ Reportes</a>
+        </nav>
+        <button id="btnSalir" class="btn-salir">↪ Cerrar sesión</button>
+    </aside>
+
+    <main class="contenido">
+        <header class="encabezado">
+            <div>
+                <h1>Inventario</h1>
+                <p>Control de existencias y movimientos de productos</p>
+            </div>
+            <div class="usuario">
+                <div class="avatar">NS</div>
+                <div>
+                    <strong id="nombreUsuario">Usuario</strong>
+                    <small id="rolUsuario">Vendedor</small>
+                </div>
+            </div>
+        </header>
+
+        <section class="estadisticas">
+            <article class="tarjeta">
+                <span>Productos registrados</span>
+                <h2 id="totalProductos">0</h2>
+                <p>En inventario</p>
+            </article>
+            <article class="tarjeta">
+                <span>Unidades disponibles</span>
+                <h2 id="totalUnidades">0</h2>
+                <p>Stock total</p>
+            </article>
+            <article class="tarjeta alerta">
+                <span>Stock bajo</span>
+                <h2 id="stockBajo">0</h2>
+                <p>Requieren reposición</p>
+            </article>
+            <article class="tarjeta">
+                <span>Movimientos</span>
+                <h2 id="totalMovimientos">0</h2>
+                <p>Registrados</p>
+            </article>
+        </section>
+
+        <section class="acciones">
+            <input type="search" id="buscarProducto" class="buscador" placeholder="Buscar producto...">
+            <button id="btnNuevoMovimiento" class="btn-principal">+ Registrar movimiento</button>
+        </section>
+
+        <section class="panel-inventario">
+            <h3>Existencias de productos</h3>
+            <p id="estado" class="estado"></p>
+            <div class="tabla-contenedor">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Código</th>
+                            <th>Categoría</th>
+                            <th>Stock actual</th>
+                            <th>Stock mínimo</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaProductos">
+                        <tr><td colspan="6">Cargando inventario...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="panel-inventario">
+            <h3>Historial de movimientos</h3>
+            <div class="tabla-contenedor">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Producto</th>
+                            <th>Tipo</th>
+                            <th>Cantidad</th>
+                            <th>Stock anterior</th>
+                            <th>Stock nuevo</th>
+                            <th>Motivo</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaMovimientos">
+                        <tr><td colspan="7">Cargando movimientos...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <footer>Sistema de Gestión de Inventario y Ventas - Nova Salud</footer>
+    </main>
+</div>
+
+<div class="modal" id="modalMovimiento">
+    <form class="modal-contenido" id="formMovimiento">
+        <h2>Registrar movimiento</h2>
+
+        <div class="campo">
+            <label for="producto">Seleccionar producto *</label>
+            <select id="producto" required>
+                <option value="">Seleccione un producto</option>
+            </select>
+        </div>
+
+        <div class="campo">
+            <label for="tipo">Tipo de movimiento *</label>
+            <select id="tipo" required>
+                <option value="">Seleccione el movimiento</option>
+                <option value="entrada">Entrada de productos</option>
+                <option value="salida">Salida de productos</option>
+                <option value="ajuste">Ajuste de stock</option>
+            </select>
+        </div>
+
+        <div class="campo">
+            <label for="cantidad" id="labelCantidad">Cantidad *</label>
+            <input type="number" id="cantidad" min="1" required>
+        </div>
+
+        <div class="campo">
+            <label for="motivo">Motivo del movimiento *</label>
+            <textarea id="motivo" rows="3" maxlength="250" required></textarea>
+        </div>
+
+        <p id="mensajeFormulario" class="estado"></p>
+
+        <div class="modal-acciones">
+            <button type="button" id="btnCancelar" class="btn-secundario">Cancelar</button>
+            <button type="submit" id="btnGuardar" class="btn-principal">Guardar movimiento</button>
+        </div>
+    </form>
+</div>
+
+<script src="/js/nav.js"></script>
+<script src="/js/inventario.js"></script>
+</body>
+</html>

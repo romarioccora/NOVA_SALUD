@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Salud | Reportes</title>
+    <meta name="description" content="Consulta reportes de ventas y estado del inventario de Nova Salud.">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/reportes.css">
+    
+    <link rel="stylesheet" href="/css/nova-theme.css">
+</head>
+<body>
+<div class="contenedor">
+    <aside class="sidebar">
+        <div class="logo"><span>✚</span><h2>Nova Salud</h2></div>
+        <nav aria-label="Menú principal">
+            <a href="/dashboard.html">▦ Dashboard</a>
+            <a href="/productos.html">▣ Productos</a>
+            <a href="/inventario.html">▤ Inventario</a>
+            <a href="/ventas.html">🛒 Ventas</a>
+                <a href="/ventas.html#historial">📋 Historial</a>
+            <a href="/clientes.html">♙ Clientes</a>
+            <a href="/reportes.html" class="activo">▥ Reportes</a>
+        </nav>
+        <button id="btnSalir" class="btn-salir">↪ Cerrar sesión</button>
+    </aside>
+
+    <main class="contenido">
+        <header class="encabezado">
+            <div>
+                <h1>Reportes</h1>
+                <p>Consulta las ventas y el estado del inventario</p>
+            </div>
+            <div class="usuario">
+                <div class="avatar">NS</div>
+                <div>
+                    <strong id="nombreUsuario">Usuario</strong>
+                    <small id="rolUsuario">Vendedor</small>
+                </div>
+            </div>
+        </header>
+
+        <section class="panel-reporte">
+            <h3>Filtrar por fechas</h3>
+            <div class="filtros">
+                <div class="campo">
+                    <label for="fechaInicio">Fecha inicial</label>
+                    <input type="date" id="fechaInicio">
+                </div>
+                <div class="campo">
+                    <label for="fechaFin">Fecha final</label>
+                    <input type="date" id="fechaFin">
+                </div>
+                <div class="campo">
+                    <label>&nbsp;</label>
+                    <button id="btnFiltrar" class="boton">Generar reporte</button>
+                </div>
+            </div>
+            <button id="btnLimpiar" class="boton boton-secundario">Mostrar todos</button>
+            <button id="btnExportar" class="boton">Exportar ventas CSV</button>
+            <p id="mensajeReporte" class="mensaje"></p>
+        </section>
+
+        <section class="estadisticas-reporte">
+            <div class="dato"><small>Ventas realizadas</small><strong id="cantidadVentas">0</strong></div>
+            <div class="dato"><small>Ingresos totales</small><strong id="ingresosTotales">S/ 0.00</strong></div>
+            <div class="dato"><small>Unidades vendidas</small><strong id="unidadesVendidas">0</strong></div>
+        </section>
+
+        <section class="panel-reporte">
+            <h3>Detalle de ventas</h3>
+            <div class="tabla-reporte">
+                <table>
+                    <thead>
+                        <tr><th>Fecha</th><th>Cliente</th><th>Vendedor</th><th>Productos</th><th>Total</th><th>Estado</th></tr>
+                    </thead>
+                    <tbody id="tablaReporte">
+                        <tr><td colspan="6">Cargando reportes...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="panel-reporte">
+            <h3>Productos más vendidos</h3>
+            <div class="tabla-reporte">
+                <table>
+                    <thead><tr><th>Producto</th><th>Unidades vendidas</th><th>Importe</th></tr></thead>
+                    <tbody id="tablaProductos">
+                        <tr><td colspan="3">Cargando...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="panel-reporte">
+            <h3>Estado del inventario</h3>
+            <div class="tabla-reporte">
+                <table>
+                    <thead><tr><th>Producto</th><th>Código</th><th>Stock</th><th>Stock mínimo</th><th>Estado</th></tr></thead>
+                    <tbody id="tablaInventario">
+                        <tr><td colspan="5">Cargando...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>Sistema de Gestión de Inventario y Ventas - Nova Salud</footer>
+    </main>
+</div>
+<script src="/js/nav.js"></script>
+<script src="/js/reportes.js"></script>
+</body>
+</html>

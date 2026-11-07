@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Salud | Ventas</title>
+    <meta name="description" content="Registra ventas y consulta el historial de operaciones de Nova Salud.">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/ventas.css">
+    
+    <link rel="stylesheet" href="/css/nova-theme.css">
+</head>
+<body>
+<div class="contenedor">
+    <aside class="sidebar">
+        <div class="logo"><span>✚</span><h2>Nova Salud</h2></div>
+        <nav aria-label="Menú principal">
+            <a href="/dashboard.html">▦ Dashboard</a>
+            <a href="/productos.html">▣ Productos</a>
+            <a href="/inventario.html">▤ Inventario</a>
+            <a href="/ventas.html" class="activo">🛒 Ventas</a>
+            <a href="/clientes.html">♙ Clientes</a>
+            <a href="/reportes.html">▥ Reportes</a>
+        </nav>
+        <button id="btnSalir" class="btn-salir">↪ Cerrar sesión</button>
+    </aside>
+
+    <main class="contenido">
+        <header class="encabezado">
+            <div><h1>Ventas</h1><p>Registra ventas y consulta el historial de operaciones</p></div>
+            <div class="usuario">
+                <div class="avatar">NS</div>
+                <div><strong id="nombreUsuario">Usuario</strong><small id="rolUsuario">Vendedor</small></div>
+            </div>
+        </header>
+
+        <section class="resumen">
+            <div><small>Ventas registradas</small><strong id="totalVentas">0</strong></div>
+            <div><small>Ventas completadas</small><strong id="ventasCompletadas">0</strong></div>
+            <div><small>Ingresos registrados</small><strong id="ingresosVentas">S/ 0.00</strong></div>
+        </section>
+
+        <div class="ventas-grid">
+            <section class="panel">
+                <h3>Nueva venta</h3>
+                <div class="campo">
+                    <label for="cliente">Cliente</label>
+                    <select id="cliente"><option value="">Cliente ocasional</option></select>
+                </div>
+                <div class="fila-producto">
+                    <div class="campo">
+                        <label for="producto">Producto</label>
+                        <select id="producto"><option value="">Seleccionar producto</option></select>
+                    </div>
+                    <div class="campo">
+                        <label for="cantidad">Cantidad</label>
+                        <input id="cantidad" type="number" min="1" value="1">
+                    </div>
+                    <button id="btnAgregar" class="btn btn-principal">Agregar</button>
+                </div>
+
+                <div class="tabla-panel">
+                    <table>
+                        <thead>
+                            <tr><th>Producto</th><th>Precio</th><th>Cantidad</th><th>Subtotal</th><th></th></tr>
+                        </thead>
+                        <tbody id="detalleVenta">
+                            <tr><td colspan="5">Agrega productos a la venta.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="campo campo-pago">
+                    <label for="metodoPago">Método de pago</label>
+                    <select id="metodoPago">
+                        <option value="efectivo">Efectivo</option>
+                        <option value="tarjeta">Tarjeta</option>
+                        <option value="transferencia">Transferencia</option>
+                    </select>
+                </div>
+                <div class="total">Total: <span id="totalVenta">S/ 0.00</span></div>
+                <p id="mensajeVenta" class="estado" role="status"></p>
+                <button id="btnRegistrar" class="btn btn-principal">Registrar venta</button>
+                <button id="btnLimpiar" class="btn btn-secundario">Limpiar</button>
+            </section>
+
+            <section class="panel">
+                <h3>Información</h3>
+                <p class="texto-ayuda">
+                    Selecciona los productos y sus cantidades. El sistema calculará automáticamente el total.
+                    Al registrar la venta, el stock se descontará del inventario.
+                </p>
+                <p class="nota-importante"><strong>Importante:</strong> verifica las cantidades antes de confirmar la operación.</p>
+            </section>
+        </div>
+
+        <section class="panel" id="historial">
+            <h3>Historial de ventas</h3>
+            <div class="campo">
+                <input id="buscarVenta" type="search" placeholder="Buscar por cliente, vendedor o código...">
+            </div>
+            <p id="resumenHistorial" class="estado">Cargando ventas...</p>
+            <div class="tabla-panel">
+                <table>
+                    <thead>
+                        <tr><th>Fecha</th><th>Cliente</th><th>Vendedor</th><th>Productos</th><th>Total</th><th>Pago</th><th>Estado</th><th>Acción</th></tr>
+                    </thead>
+                    <tbody id="tablaVentas"><tr><td colspan="8">Cargando...</td></tr></tbody>
+                </table>
+            </div>
+        </section>
+        <footer>Sistema de Gestión de Inventario y Ventas - Nova Salud</footer>
+    </main>
+</div>
+<script src="/js/nav.js"></script>
+<script src="/js/ventas.js"></script>
+</body>
+</html>

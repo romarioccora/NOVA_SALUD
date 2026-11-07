@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Salud | Dashboard</title>
+    <meta name="description" content="Resumen general de actividad y existencias de Nova Salud.">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/nova-theme.css">
+</head>
+<body>
+
+    <div class="contenedor">
+
+        <!-- Menú lateral -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <span>✚</span>
+                <h2>Nova Salud</h2>
+            </div>
+
+            <nav aria-label="Menú principal">
+                <a href="dashboard.html" class="activo">▦ Dashboard</a>
+                <a href="productos.html">▣ Productos</a>
+                <a href="inventario.html">▤ Inventario</a>
+                <a href="ventas.html">🛒 Ventas</a>
+                <a href="/ventas.html#historial">📋 Historial</a>
+                <a href="clientes.html">♙ Clientes</a>
+                <a href="reportes.html">▥ Reportes</a>
+            </nav>
+
+            <button id="btnSalir" class="btn-salir">
+                ↪ Cerrar sesión
+            </button>
+
+        </aside>
+
+        <!-- Contenido principal -->
+        <main class="contenido">
+
+            <header class="encabezado">
+                <div>
+                    <h1>Dashboard</h1>
+                    <p>Resumen general de la botica</p>
+                </div>
+
+                <div class="usuario">
+                    <div class="avatar">NS</div>
+                    <div>
+                        <strong id="nombreUsuario">Usuario</strong>
+                        <small id="rolUsuario">Vendedor</small>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Indicadores -->
+            <section class="estadisticas">
+
+                <article class="tarjeta">
+                    <span>Productos registrados</span>
+                    <h2 id="totalProductos">0</h2>
+                    <p>Productos en el sistema</p>
+                </article>
+
+                <article class="tarjeta">
+                    <span>Ventas del día</span>
+                    <h2 id="totalVentas">0</h2>
+                    <p>Ventas realizadas</p>
+                </article>
+
+                <article class="tarjeta">
+                    <span>Ingresos del día</span>
+                    <h2 id="ingresos">S/ 0.00</h2>
+                    <p>Total vendido</p>
+                </article>
+
+                <article class="tarjeta alerta">
+                    <span>Stock bajo</span>
+                    <h2 id="stockBajo">0</h2>
+                    <p>Productos por reponer</p>
+                </article>
+
+            </section>
+
+            <!-- Información adicional -->
+            <section class="paneles">
+
+                <article class="panel">
+                    <h3>Alertas de inventario</h3>
+                    <p>Productos que necesitan reposición.</p>
+                    <div id="listaAlertas">
+                        <p class="vacio">Todavía no hay alertas registradas.</p>
+                    </div>
+                </article>
+
+                <article class="panel">
+                    <h3>Últimas ventas</h3>
+                    <p>Movimientos recientes de la botica.</p>
+
+                    <div class="tabla-contenedor">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Cantidad</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablaVentas">
+                                <tr>
+                                    <td colspan="3">No hay ventas registradas.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+
+            </section>
+
+            <footer>
+                Sistema de Gestión de Inventario y Ventas - Nova Salud
+            </footer>
+
+        </main>
+
+    </div>
+
+    <script src="/js/nav.js"></script>
+<script src="/js/dashboard.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nova Salud | Clientes</title>
+    <meta name="description" content="Administra los clientes registrados en Nova Salud.">
+
+    <!-- Estilos generales -->
+    <link rel="stylesheet" href="/css/dashboard.css">
+
+    <!-- Estilos del módulo Clientes -->
+    <link rel="stylesheet" href="/css/clientes.css">
+    <link rel="stylesheet" href="/css/nova-theme.css">
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <!-- BARRA LATERAL -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <span>✚</span>
+                <h2>Nova Salud</h2>
+            </div>
+
+            <nav aria-label="Menú principal">
+                <a href="/dashboard.html">▦ Dashboard</a>
+                <a href="/productos.html">▣ Productos</a>
+                <a href="/inventario.html">▤ Inventario</a>
+                <a href="/ventas.html">🛒 Ventas</a>
+                <a href="/ventas.html#historial">📋 Historial</a>
+                <a href="/clientes.html" class="activo">♙ Clientes</a>
+                <a href="/reportes.html">▥ Reportes</a>
+            </nav>
+
+            <button id="btnSalir" class="btn-salir">
+                ↪ Cerrar sesión
+            </button>
+
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="contenido">
+
+            <!-- ENCABEZADO -->
+            <header class="encabezado">
+
+                <div>
+                    <h1>Clientes</h1>
+                    <p>
+                        Administra los datos de los clientes de Nova Salud
+                    </p>
+                </div>
+
+                <!-- USUARIO -->
+                <div class="usuario">
+
+                    <div class="avatar">NS</div>
+
+                    <div>
+                        <strong id="nombreUsuario">Usuario</strong>
+                        <small id="rolUsuario">Rol</small>
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!-- PANEL DE CLIENTES -->
+            <section class="panel">
+
+                <!-- BÚSQUEDA Y REGISTRO -->
+                <div class="barra">
+
+                    <input
+                        id="buscar"
+                        type="search"
+                        placeholder="Buscar por nombre, documento o correo"
+                    >
+
+                    <button id="nuevo" class="btn primario">
+                        + Nuevo cliente
+                    </button>
+
+                </div>
+
+                <!-- MENSAJES -->
+                <p id="mensaje" class="estado"></p>
+
+                <!-- TABLA -->
+                <div class="tabla">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Documento</th>
+                                <th>Teléfono</th>
+                                <th>Correo</th>
+                                <th>Dirección</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="tabla">
+
+                            <tr>
+                                <td colspan="6">
+                                    Cargando clientes...
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- =====================================
+         MODAL NUEVO / EDITAR CLIENTE
+    ====================================== -->
+
+    <div id="modal" class="modal">
+
+        <form id="formCliente" class="formulario">
+
+            <h2 id="tituloModal">Nuevo cliente</h2>
+
+            <!-- ID DEL CLIENTE -->
+            <input id="id" type="hidden">
+
+            <!-- NOMBRE COMPLETO -->
+            <div class="campo">
+
+                <label for="nombre">Nombre completo *</label>
+
+                <input
+                    id="nombre"
+                    maxlength="120"
+                    required
+                >
+
+            </div>
+
+            <!-- DATOS DEL CLIENTE -->
+            <div class="grid">
+
+                <div class="campo">
+
+                    <label for="documento">Documento *</label>
+
+                    <input
+                        id="documento"
+                        maxlength="20"
+                        required
+                    >
+
+                </div>
+
+                <div class="campo">
+
+                    <label for="telefono">Teléfono</label>
+
+                    <input
+                        id="telefono"
+                        maxlength="25"
+                        inputmode="tel"
+                    >
+
+                </div>
+
+                <div class="campo">
+
+                    <label for="correo">Correo</label>
+
+                    <input
+                        id="correo"
+                        type="email"
+                        maxlength="120"
+                    >
+
+                </div>
+
+                <div class="campo">
+
+                    <label for="direccion">Dirección</label>
+
+                    <input
+                        id="direccion"
+                        maxlength="200"
+                    >
+
+                </div>
+
+            </div>
+
+            <!-- ERROR -->
+            <p id="errorForm" class="estado error"></p>
+
+            <!-- BOTONES -->
+            <div class="modal-acciones">
+
+                <button
+                    type="button"
+                    id="cancelar"
+                    class="btn neutro"
+                >
+                    Cancelar
+                </button>
+
+                <button
+                    type="submit"
+                    class="btn primario"
+                >
+                    Guardar cliente
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="/js/nav.js"></script>
+<script src="/js/clientes.js"></script>
+
+</body>
+</html>

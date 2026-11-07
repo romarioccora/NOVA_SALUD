@@ -1,0 +1,214 @@
+
+/* =========================================
+   NOVA SALUD - MODULO CLIENTES
+========================================= */
+
+/* PANEL PRINCIPAL */
+.panel {
+    background: #fff;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px #00000008;
+}
+
+/* BARRA DE BÚSQUEDA */
+.barra {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+
+.barra input {
+    padding: 11px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    min-width: 240px;
+}
+
+/* BOTONES */
+.btn {
+    border: 0;
+    border-radius: 7px;
+    padding: 10px 14px;
+    cursor: pointer;
+}
+
+.primario {
+    background: var(--naranja);
+    color: #fff;
+}
+
+.neutro {
+    background: #eef0f3;
+    color: #344;
+}
+
+.peligro {
+    background: #ffeded;
+    color: #b42318;
+}
+
+/* TABLA */
+.tabla {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+}
+
+th {
+    background: #fafafa;
+    color: #626b78;
+}
+
+/* ACCIONES */
+.acciones-fila {
+    display: flex;
+    gap: 7px;
+}
+
+/* MENSAJES */
+.estado {
+    font-size: 13px;
+    margin: 12px 0;
+}
+
+.error {
+    color: #c0392b;
+}
+
+.ok {
+    color: #218653;
+}
+
+/* =========================================
+   MODAL
+========================================= */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #0008;
+    z-index: 10;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 16px;
+}
+
+.modal.activo {
+    display: flex;
+}
+
+/* FORMULARIO */
+.formulario {
+    background: #fff;
+    padding: 24px;
+    border-radius: 12px;
+
+    width: 100%;
+    max-width: 520px;
+
+    max-height: 92vh;
+    overflow-y: auto;
+}
+
+.formulario h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--azul-oscuro, #071B36);
+}
+
+/* CAMPOS */
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 13px;
+}
+
+.campo label {
+    font-size: 13px;
+    color: #626b78;
+}
+
+.campo input {
+    padding: 11px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    font: inherit;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.campo input:focus {
+    outline: none;
+    border-color: var(--azul-electrico, #168BFF);
+    box-shadow: 0 0 0 3px rgba(22, 139, 255, 0.10);
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* ACCIONES DEL MODAL */
+.modal-acciones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 9px;
+    margin-top: 16px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .contenido {
+        padding: 16px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .barra input {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .barra button {
+        width: 100%;
+    }
+
+    .formulario {
+        padding: 18px;
+    }
+
+    .modal-acciones {
+        flex-direction: column-reverse;
+    }
+
+    .modal-acciones button {
+        width: 100%;
+    }
+}

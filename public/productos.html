@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nova Salud | Productos</title>
+    <meta name="description" content="Consulta y administra el catálogo de productos de Nova Salud.">
+
+    <!-- Estilos generales del dashboard -->
+    <link rel="stylesheet" href="/css/dashboard.css">
+
+    <!-- Estilos propios de productos -->
+    <link rel="stylesheet" href="/css/productos.css">
+    <link rel="stylesheet" href="/css/nova-theme.css">
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <!-- BARRA LATERAL -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <span>✚</span>
+                <h2>Nova Salud</h2>
+            </div>
+
+            <nav aria-label="Menú principal">
+                <a href="/dashboard.html">▦ Dashboard</a>
+                <a href="/productos.html" class="activo">▣ Productos</a>
+                <a href="/inventario.html">▤ Inventario</a>
+                <a href="/ventas.html">🛒 Ventas</a>
+                <a href="/ventas.html#historial">📋 Historial</a>
+                <a href="/clientes.html">♙ Clientes</a>
+                <a href="/reportes.html">▥ Reportes</a>
+            </nav>
+
+            <button id="btnSalir" class="btn-salir">
+                ↪ Cerrar sesión
+            </button>
+
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="contenido">
+
+            <!-- ENCABEZADO -->
+            <header class="encabezado">
+
+                <div>
+                    <h1>Productos</h1>
+                    <p>
+                        Registro, consulta, edición y control del catálogo
+                    </p>
+                </div>
+
+                <div class="usuario">
+
+                    <div class="avatar">NS</div>
+
+                    <div>
+                        <strong id="nombreUsuario">Usuario</strong>
+                        <small id="rolUsuario">Rol</small>
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!-- PANEL DE PRODUCTOS -->
+            <section class="panel">
+
+                <!-- BARRA DE BÚSQUEDA Y REGISTRO -->
+                <div class="barra">
+
+                    <input
+                        id="buscar"
+                        type="search"
+                        placeholder="Buscar por nombre, código o categoría"
+                    >
+
+                    <button id="nuevo" class="btn primario">
+                        + Nuevo producto
+                    </button>
+
+                </div>
+
+                <!-- MENSAJES -->
+                <p id="mensaje" class="estado"></p>
+
+                <!-- TABLA -->
+                <div class="tabla">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Código</th>
+                                <th>Categoría</th>
+                                <th>Precio</th>
+                                <th>Stock</th>
+                                <th>Stock mínimo</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="tabla">
+
+                            <tr>
+                                <td colspan="7">
+                                    Cargando productos...
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- =====================================
+         MODAL NUEVO / EDITAR PRODUCTO
+    ====================================== -->
+
+    <div id="modal" class="modal">
+
+        <form id="formProducto" class="formulario">
+
+            <h2 id="tituloModal">Nuevo producto</h2>
+
+            <!-- ID DEL PRODUCTO -->
+            <input type="hidden" id="id">
+
+            <!-- CAMPOS DEL PRODUCTO -->
+            <div class="grid">
+
+                <div class="campo">
+                    <label for="nombre">Nombre *</label>
+                    <input
+                        id="nombre"
+                        maxlength="120"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="codigo">Código *</label>
+                    <input
+                        id="codigo"
+                        maxlength="40"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="categoria">Categoría *</label>
+                    <input
+                        id="categoria"
+                        maxlength="80"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="laboratorio">Laboratorio</label>
+                    <input
+                        id="laboratorio"
+                        maxlength="100"
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="precio">Precio (S/) *</label>
+                    <input
+                        id="precio"
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="stockMinimo">Stock mínimo</label>
+                    <input
+                        id="stockMinimo"
+                        type="number"
+                        min="0"
+                        step="1"
+                        value="5"
+                    >
+                </div>
+
+                <div class="campo" id="campoStock">
+
+                    <label for="stock">Stock inicial</label>
+
+                    <input
+                        id="stock"
+                        type="number"
+                        min="0"
+                        step="1"
+                        value="0"
+                    >
+
+                    <small class="nota">
+                        El stock posterior se modifica desde Inventario.
+                    </small>
+
+                </div>
+
+                <div class="campo">
+
+                    <label for="fechaVencimiento">
+                        Fecha de vencimiento
+                    </label>
+
+                    <input
+                        id="fechaVencimiento"
+                        type="date"
+                    >
+
+                </div>
+
+            </div>
+
+            <!-- DESCRIPCIÓN -->
+            <div class="campo">
+
+                <label for="descripcion">
+                    Descripción
+                </label>
+
+                <textarea
+                    id="descripcion"
+                    maxlength="500"
+                ></textarea>
+
+            </div>
+
+            <!-- ERROR DEL FORMULARIO -->
+            <p id="errorForm" class="estado error"></p>
+
+            <!-- ACCIONES -->
+            <div class="modal-acciones">
+
+                <button
+                    type="button"
+                    id="cancelar"
+                    class="btn neutro"
+                >
+                    Cancelar
+                </button>
+
+                <button
+                    class="btn primario"
+                    type="submit"
+                >
+                    Guardar producto
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="/js/nav.js"></script>
+<script src="/js/productos.js"></script>
+
+</body>
+</html>

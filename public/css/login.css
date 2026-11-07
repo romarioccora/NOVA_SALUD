@@ -1,0 +1,150 @@
+
+/* Configuración general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f5f9;
+    min-height: 100vh;
+}
+
+/* Contenedor principal */
+.contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Panel de inicio de sesión */
+.panel-login {
+    background: white;
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #f36b35;
+    margin-bottom: 30px;
+}
+
+.logo span {
+    font-size: 35px;
+}
+
+.logo h1 {
+    font-size: 27px;
+}
+
+/* Textos */
+.panel-login h2 {
+    color: #252b36;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.panel-login > p {
+    color: #777;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Formulario */
+form label {
+    display: block;
+    margin: 15px 0 8px;
+    color: #333;
+    font-weight: bold;
+}
+
+form input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    outline: none;
+    font-size: 14px;
+}
+
+form input:focus {
+    border-color: #f36b35;
+}
+
+/* Botón */
+form button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 25px;
+    background: #f36b35;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #df5525;
+}
+
+/* Mensajes */
+#mensaje {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+/* Pie de página */
+footer {
+    text-align: center;
+    color: #999;
+    font-size: 12px;
+    margin-top: 30px;
+}
+
+/* Acabado visual para la pantalla de acceso */
+body {
+    background: radial-gradient(circle at top right, #ffe4d6 0, transparent 38%), #f5f6fa;
+    color: #263238;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+.panel-login {
+    border: 1px solid #f0e7e2;
+    border-radius: 20px;
+    box-shadow: 0 18px 50px rgba(45, 50, 60, .10);
+}
+.panel-login h2 { color: #263238; }
+.panel-login p { color: #858b98; line-height: 1.6; }
+.panel-login input {
+    width: 100%;
+    padding: 13px 14px;
+    margin: 8px 0 18px;
+    border: 1px solid #dfe4eb;
+    border-radius: 9px;
+    outline: none;
+}
+.panel-login input:focus { border-color: #f36b35; box-shadow: 0 0 0 3px #f36b3520; }
+.panel-login button {
+    width: 100%;
+    padding: 13px;
+    border: 0;
+    border-radius: 9px;
+    color: #fff;
+    background: linear-gradient(110deg, #f36b35, #ff8950);
+    font-weight: 700;
+    cursor: pointer;
+}
+.panel-login footer { margin-top: 24px; color: #9299a5; font-size: 12px; }
